@@ -2,7 +2,7 @@
 
     <% @posts.each do |post| %>
 
-        <p><%= image_tag post.image.url(:medium) %><br>
+        <p><%= image_tag post.image.url(:original, false) %><br>
         <%= post.content %><br>
 
         <% if user_signed_in? %>

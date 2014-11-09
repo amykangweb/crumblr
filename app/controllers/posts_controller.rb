@@ -41,17 +41,17 @@ class PostsController < ApplicationController
 
   private
 
-    def check_user
-      unless (@post.user == current_user) || (current_user.admin?)
-        redirect_to root_url, alert: "You are not authorized"
-      end
-    end
+  def check_user
+    unless (@post.user == current_user) || (current_user.admin?)
+    redirect_to root_url, alert: "You are not authorized"
+  end
+  end
+  
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def set_post
-      @post = Post.find(params[:id])
-    end
-
-    def post_params
-      params.require(:post).permit(:content, :image)
-    end
+  def post_params
+    params.require(:post).permit(:content, :image)
+  end
 end
