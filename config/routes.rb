@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
+  
+  resources :users
+
   resources :posts
+
+  match 'users/show', to: 'users#show', via: 'get'
 
   root 'posts#index'
 

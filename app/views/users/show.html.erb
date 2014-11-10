@@ -1,0 +1,22 @@
+<h2><%= @user.name %>'s Posts</h2>
+
+<% if @user == current_user %>
+	<%= link_to "New Post", new_post_path %><br>
+<% end %>
+
+<% @user.posts.each do |post| %>
+
+	<p>Posted <%= time_ago_in_words(post.created_at) %> ago.<br>
+	<%= image_tag post.image.url(:original, false) %><br>
+	<%= post.content %><br>
+
+	<% if user_signed_in? %>
+	<% if (@user == current_user) || (current_user.admin?) %>
+	<span>
+       <%= link_to 'Edit', edit_post_path(post) %>
+       <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+     <% end %>
+     <% end %>
+   </p>
+
+<% end %>
