@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	has_attached_file :image, :styles => { :medium => "300x", :thumb => "100x100" }, :default_url => "default.jpg"
+	has_attached_file :image, :styles => { :medium => "500x", :large => "1000x" }, :default_url => "default.jpg"
 	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] } 
 
 	default_scope -> {order('created_at DESC')}
@@ -7,4 +7,9 @@ class Post < ActiveRecord::Base
 	validates_attachment_presence :image
 
 	belongs_to :user
+	acts_as_votable
+
+	def score
+		self.get_upvotes.size - self.get_downvotes.size
+	end
 end

@@ -1,13 +1,30 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:upvote, :downvote, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   respond_to :html
 
+  def upvote
+    @post = Post.find(params[:id])
+    @post.liked_by current_user
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.unliked_by current_user
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def index
     @posts = Post.all
-    respond_with(@post)
   end
 
   def show

@@ -4,11 +4,12 @@
 <%= link_to 'New Post', new_post_path %>
 <% end %>
 
-    <% @posts.each do |post| %>
+<% @posts.each do |post| %>
 
-        <p>Posted by <strong><%= link_to post.user.name, post.user %></strong><br>
-        <%= image_tag post.image.url(:original, false) %><br>
+        <p>Posted by <strong><%= link_to post.user.name, post.user %></strong></p>
+        <%= link_to (image_tag post.image.url(:medium, false)), post %><br>
         <%= post.content %><br>
+        <%= post.score %>&nbsp;Likes<p>
 
         <% if user_signed_in? %>
         <% if (post.user == current_user) || (current_user.admin?) %>
