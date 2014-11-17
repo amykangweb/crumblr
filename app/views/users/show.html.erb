@@ -6,9 +6,10 @@
 
 <% @user.posts.each do |post| %>
 
-	<p>Posted <%= time_ago_in_words(post.created_at) %> ago.<br>
-	<%= image_tag post.image.url(:original, false) %><br>
+	<p>Posted <%= time_ago_in_words(post.created_at) %> ago.<p>
+	<%= link_to (image_tag post.image.url(:medium, false)), post %><br>
 	<%= post.content %><br>
+	<%= post.score %>&nbsp;Likes<p>
 
 	<% if user_signed_in? %>
 	<% if (@user == current_user) || (current_user.admin?) %>
