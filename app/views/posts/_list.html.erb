@@ -1,0 +1,5 @@
+<% @post.votes_for.voters.each do |voter| %>
+
+<strong><%= link_to voter.name, voter %> likes this.</strong><br>
+
+<% end %>
