@@ -44,17 +44,19 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to root_url, notice: "Your post has been created."
+    flash.keep[:notice] = "Your post has been created."
+    redirect_to root_url 
   end
 
   def update
     @post.update(post_params)
-    respond_with @post, notice: "Your post has been updated."
+    flash.keep[:notice] = "Your post has been updated."
+    respond_with @post
   end
 
   def destroy
     @post.destroy
-    flash[:alert] = "Post destroyed."
+    flash.keep[:alert] = "Post destroyed."
     redirect_to(root_url)
   end
 
