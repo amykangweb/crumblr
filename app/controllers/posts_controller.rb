@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.limit(6)
     respond_with(@post)
   end
 
@@ -43,16 +44,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to(root_url)
+    redirect_to root_url, notice: "Your post has been created."
   end
 
   def update
     @post.update(post_params)
-    respond_with(@post)
+    respond_with @post, notice: "Your post has been updated."
   end
 
   def destroy
     @post.destroy
+    flash[:alert] = "Post destroyed."
     redirect_to(root_url)
   end
 

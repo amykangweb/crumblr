@@ -1,3 +1,17 @@
+@import "bootstrap";
+
 h1 a {
 	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+.form-group {
+	padding: 10px;
+}
+
+.notice {
+	padding-top: 50px;
 }

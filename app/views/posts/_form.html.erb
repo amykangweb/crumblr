@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="image" class="col-sm-2 control-label">Image:</label>
+    <div class="col-sm-10">
+    <%= f.file_field :image, class: "form-control" %>
   </div>
+</div>
+  <div class="form-group">
+    <label for="image" class="col-sm-2 control-label">Comment:</label>
+    <div class="col-sm-10">
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
+</form>

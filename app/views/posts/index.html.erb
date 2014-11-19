@@ -1,8 +1,5 @@
-<h2>Latest Posts</h2>
-
-<% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
-<% end %>
+<div class="row text-center">
+<h3>Latest Posts</h3>
 
 <% @posts.each do |post| %>
 
@@ -10,14 +7,15 @@
         <%= link_to (image_tag post.image.url(:medium, false)), post %><br>
         <%= post.content %><br>
         <%= post.score %>&nbsp;Likes<p>
+        <%= link_to "#{post.comments.count} Comments >>", post_path(post) %><p>
 
         <% if user_signed_in? %>
         <% if (post.user == current_user) || (current_user.admin?) %>
         <span>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span></p>
+        <%= link_to 'Edit', edit_post_path(post), class: "btn btn-link" %>
+        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></span></p>
         <% end %>
         <% end %>
     <% end %>
 
-<br>
+</div>

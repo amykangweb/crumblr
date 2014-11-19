@@ -1,0 +1,10 @@
+<div class="comments">
+
+<% @comments.each do |comment| %>
+
+<strong><%= comment.post.user.name %>&nbsp;said:</strong>
+&nbsp;<%= comment.body %><p><%= link_to 'delete', [comment.post, comment], method: :delete %></p>
+
+<% end %>
+
+</div>
