@@ -28,8 +28,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.limit(6)
-    respond_with(@post)
+    @comments = @post.comments.limit(3)
   end
 
   def new

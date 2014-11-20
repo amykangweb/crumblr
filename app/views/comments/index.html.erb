@@ -1,25 +1,22 @@
-<h1>Listing comments</h1>
+<div class="row text-center">
+<h3>All Comments</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<p><%= link_to '<< Back to Post', post_path(@post) %></p>
 
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.body %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @comments.blank? %>
 
-<br>
+No Comments
 
-<%= link_to 'New Comment', new_comment_path %>
+<% else %>
+
+<% @comments.each do |comment| %>
+
+<p><strong><%= link_to comment.user.name, comment.user %>:</strong>&nbsp;<%= comment.body %></p>
+
+<% end %>
+
+<% end %>
+
+<p><%= render 'comments/form' %></p>
+
+</div>

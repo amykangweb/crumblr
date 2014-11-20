@@ -1,18 +1,18 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post
-  before_action :check_user, except: [:create]
+  before_action :check_user, except: [:index, :show]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @comments = Comment.all
+    @comments = @post.comments.all
     respond_with(@comments)
   end
 
   def show
-    respond_with(@comment)
+    
   end
 
   def new
@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
   private
 
     def check_user
-      unless @post.user == current_user || current_user.admin?
+      unless @post.user == current_user || current_user.try(:admin?)
         redirect_to root_url, alert: "You are not authorized."
       end
     end
