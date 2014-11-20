@@ -11,7 +11,15 @@ No Comments
 
 <% @comments.each do |comment| %>
 
-<p><strong><%= link_to comment.user.name, comment.user %>:</strong>&nbsp;<%= comment.body %></p>
+<p><strong><%= link_to comment.user.name, comment.user %> said:</strong>&nbsp;<%= comment.body %></p>
+
+<% if user_signed_in? %>
+<% if @post.user == current_user || current_user.admin? %>
+
+<p><%= link_to "delete", [comment.post, comment], method: :delete, data: {confirm: "Are you sure?"} %></p>
+
+<% end %>
+<% end %>
 
 <% end %>
 

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post
-  before_action :check_user, except: [:index, :show]
+  before_action :check_user, except: [:index]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -11,8 +11,7 @@ class CommentsController < ApplicationController
     respond_with(@comments)
   end
 
-  def show
-    
+  def show 
   end
 
   def new
@@ -39,7 +38,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-    redirect_to @post
+    redirect_to post_comments_path(@post)
   end
 
   private

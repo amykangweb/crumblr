@@ -2,11 +2,19 @@
 
 <% @comments.each do |comment| %>
 
-<strong><%= comment.post.user.name %>&nbsp;said:</strong>
-&nbsp;<%= comment.body %><p><%= link_to 'delete', [comment.post, comment], method: :delete %></p>
+<p><strong><%= comment.post.user.name %>&nbsp;said:</strong>
+&nbsp;<%= comment.body %></p>
+
+<% if user_signed_in? %>
+<% if @post.user == current_user || current_user.admin? %>
+
+<%= link_to 'delete', [comment.post, comment], method: :delete %></p>
+
+<% end %>
+<% end %>
 
 <% end %>
 
-<%= link_to "View All #{@comments.count} Comments >>", post_comments_path(@post) %> 
+<%= link_to "View All #{@all.count} Comments >>", post_comments_path(@post) %> 
 
 </div>

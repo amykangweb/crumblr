@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       put "like", to: "posts#upvote"
       put "unlike", to: "posts#downvote"
     end
-    resources :comments
+    resources :comments, except: [:show]
   end
 
   match 'users/show', to: 'users#show', via: 'get'

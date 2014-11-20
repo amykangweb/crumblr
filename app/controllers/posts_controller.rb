@@ -29,6 +29,7 @@ class PostsController < ApplicationController
 
   def show
     @comments = @post.comments.limit(3)
+    @all = @post.comments.all
   end
 
   def new
