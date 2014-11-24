@@ -12,7 +12,7 @@
 	<div class="box">
 
 	<p>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
-	<p><%= link_to (image_tag post.image.url(:medium, false)), post %></p>
+	<p><%= link_to (image_tag post.image.url(:medium)), post %></p>
 
 	<p><em>"<%= post.content %>"</em></p>
 
