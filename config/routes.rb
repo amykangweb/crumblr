@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   match 'users/show', to: 'users#show', via: 'get'
   match 'comments', to: 'comments#index', via: 'get'
+  match '/liked', to: 'posts#liked', via: 'get'
 
   root 'posts#index'
 

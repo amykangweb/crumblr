@@ -22,5 +22,11 @@
       <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
+
+    <ul class="nav navbar-nav navbar-left">
+       <% if user_signed_in? %>
+      <li><%= link_to "Liked Posts", liked_path %></li>
+      <% end %>
+    </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

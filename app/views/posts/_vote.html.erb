@@ -1,13 +1,13 @@
 <% if current_user.voted_for?(@post) %>
 
 <p>
-	<%= link_to "unlike", unlike_post_path(@post), class: "downvote", method: :put, remote: true %>
+	<%= link_to image_tag("liked.png"), unlike_post_path(@post), class: "ivote", method: :put, remote: true %>
 </p>
 
 <% else %>
 
 <p>
-	<%= link_to "like", like_post_path(@post), class: "upvote", method: :put, remote: true %>
+	<%= link_to image_tag("unliked.png"), like_post_path(@post), class: "ivote", method: :put, remote: true %>
 </p>
 
 <% end %>

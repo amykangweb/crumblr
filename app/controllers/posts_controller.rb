@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:upvote, :downvote, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:liked, :upvote, :downvote, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   respond_to :html
+
+  def liked
+    @posts = current_user.find_liked_items
+  end
 
   def upvote
     @post = Post.find(params[:id])

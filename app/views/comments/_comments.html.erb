@@ -1,8 +1,10 @@
 <div class="comments">
 
+<% unless @comments.blank? %>
+
 <% @comments.each do |comment| %>
 
-<p><strong><%= comment.post.user.name %>&nbsp;said:</strong>
+<p><strong><%= link_to comment.user.name, comment.user %>&nbsp;said:</strong>
 &nbsp;<%= comment.body %></p>
 
 <% if user_signed_in? %>
@@ -16,5 +18,11 @@
 <% end %>
 
 <%= link_to "View All #{@all.count} Comments >>", post_comments_path(@post) %> 
+
+<% else %>
+
+No Comments
+
+<% end %>
 
 </div>

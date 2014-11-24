@@ -13,9 +13,11 @@
 <%= render 'layouts/nav' %>
 
 <div class="row text-center">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice %><p class="notice"><%= notice %></p><% end %>
+<% if alert %><p class="alert"><%= alert %></p><% end %>
 </div>
+
+<p class="top-margin"></p>
 
 <%= yield %>
 

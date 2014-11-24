@@ -1,5 +1,7 @@
 <div class="row text-center">
-<h3>Latest Posts</h3>
+<h3>Your Liked Posts</h3>
+
+<% unless @posts.blank? %>
 
 <% @posts.each do |post| %>
 
@@ -22,8 +24,15 @@
         <% end %>
         <% end %>
 
-        </div>
-        <p></p>
+    </div>
+    <p></p>
+    
+    <% end %>
+
+    <% else %>
+
+    No Posts
+
     <% end %>
 
 </div>
