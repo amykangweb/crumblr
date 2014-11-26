@@ -68,8 +68,9 @@ class PostsController < ApplicationController
 
   def check_user
     unless (@post.user == current_user) || (current_user.admin?)
-    redirect_to root_url, alert: "You are not authorized"
-  end
+      flash.keep[:alert] = "You are not authorized."
+      redirect_to root_url
+    end
   end
   
   def set_post
