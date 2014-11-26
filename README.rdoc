@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic tumblr/instagram type app using paperclip, dropbox, and acts_as_votable gems. For a complete list of gems, check the Gemfile.
 
-Things you may want to cover:
+The live site is available at: 
 
-* Ruby version
+https://radiant-sands-5345.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This app is a work in progress.
