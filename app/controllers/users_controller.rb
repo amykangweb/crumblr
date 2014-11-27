@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 before_action :set_user
 
 def show
+	@posts = @user.posts.paginate(page: params[:page])
 end
 
 private

@@ -29,10 +29,14 @@
     
     <% end %>
 
-    <% else %>
+     <div class="digg_pagination">
+        <%= will_paginate @posts %>
+    </div>
 
-    No Posts
+     <% else %>
 
-    <% end %>
+     No Posts
+
+     <% end %>
 
 </div>

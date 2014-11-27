@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:liked, :upvote, :downvote, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
@@ -6,7 +7,7 @@ class PostsController < ApplicationController
   respond_to :html
 
   def liked
-    @posts = current_user.find_liked_items
+    @posts = current_user.find_liked_items.paginate(page: params[:page], per_page: 10)
   end
 
   def upvote
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page])
   end
 
   def show
