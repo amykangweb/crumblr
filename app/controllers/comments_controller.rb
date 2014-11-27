@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   respond_to :html
 
   def index
-    @comments = @post.comments.all
+    @comments = @post.comments.paginate(page: params[:page])
     respond_with(@comments)
   end
 

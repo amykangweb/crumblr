@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+(1..50).each do |i|
+  Comment.create!(user_id: 3, post_id: 35, body: %{
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  })
+end
