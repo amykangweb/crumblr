@@ -31,7 +31,7 @@
 
 <% else %>
 
-	<%= link_to "like", new_user_session_path, notice: "Please log in to vote." %>
+	<%= link_to image_tag("https://dl.dropboxusercontent.com/s/e4brk85yxhju2d1/unliked.png"), new_user_session_path, class: "ivote", notice: "Please login to vote." %>
 
 <% end %>
 

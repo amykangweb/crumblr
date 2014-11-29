@@ -1,13 +1,13 @@
 <% if current_user.voted_for?(@post) %>
 
 <p>
-	<%= link_to image_tag("liked.png"), unlike_post_path(@post), class: "ivote", method: :put, remote: true %>
+	<%= link_to image_tag("https://dl.dropboxusercontent.com/s/6ykowyl42is2851/liked.png"), unlike_post_path(@post), class: "ivote", method: :put, remote: true %>
 </p>
 
 <% else %>
 
 <p>
-	<%= link_to image_tag("unliked.png"), like_post_path(@post), class: "ivote", method: :put, remote: true %>
+	<%= link_to image_tag("https://dl.dropboxusercontent.com/s/e4brk85yxhju2d1/unliked.png"), like_post_path(@post), class: "ivote", method: :put, remote: true %>
 </p>
 
 <% end %>
