@@ -13,6 +13,13 @@
 </p>
 
 <p>
+	<strong>Tags:</strong>
+	<% unless @post.tag.blank? %>
+		<%= @post.tag %>
+	<% end %>
+</p>
+
+<p>
 	<span class="score"><%= @post.score %></span>&nbsp;Likes
 </p>
 

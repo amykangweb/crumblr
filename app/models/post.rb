@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
 
 	default_scope -> {order('created_at DESC')}
 	validates :content, presence: true, length: {maximum: 200}
+	validates :tag, length: {maximum: 100}
 	validates_attachment_presence :image
 
 	belongs_to :user
