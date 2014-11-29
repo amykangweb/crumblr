@@ -6,6 +6,6 @@ The live site is available at:
 
 https://radiant-sands-5345.herokuapp.com/
 
-* search function not available on live site *
+* search function not available on live site
 
 This app is a work in progress.
