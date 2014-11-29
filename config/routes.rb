@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       put "like", to: "posts#upvote"
       put "unlike", to: "posts#downvote"
     end
+    collection do
+      get 'search'
+    end
     resources :comments, except: [:show]
   end
 

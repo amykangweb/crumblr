@@ -28,5 +28,10 @@
       <li><%= link_to "Liked Posts", liked_path %></li>
       <% end %>
     </ul>
+
+        <%= form_tag search_posts_path, method: :get, class: "navbar-form navbar-left" do %>
+          <%= text_field_tag :search, params[:search], class: "form-control search" %><%= submit_tag "Search", name: nil, class: "btn btn-default inline-button" %>
+        <% end %>
+
   </div><!-- /.navbar-collapse -->
 </nav>

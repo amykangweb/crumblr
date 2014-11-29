@@ -6,6 +6,14 @@ class PostsController < ApplicationController
 
   respond_to :html
 
+  def search
+    if params[:search].present?
+      @posts = Post.search(params[:search])
+    else
+      @posts = Post.all
+    end
+  end
+
   def liked
     @posts = current_user.find_liked_items.paginate(page: params[:page], per_page: 10)
   end
